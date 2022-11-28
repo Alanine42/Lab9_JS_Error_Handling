@@ -101,9 +101,126 @@
 
     let errorBtns = Array.from(document.querySelectorAll('#error-btns > button'));
 
-    // Start your code here
-    // You may move this JS to another file if you wish
-    
+    // -----------------------Step 2--------------------------------
+    // Log
+    errorBtns[0].addEventListener('click', () => {
+      console.log('Logging from console')
+    })
+
+    // Error
+    errorBtns[1].addEventListener('click', () => {
+      console.error('Teeth Not Brushed Error!')
+    })
+
+    // Count
+    errorBtns[2].addEventListener('click', () => {
+      console.count('This Count Button Clicked')
+    })
+
+    // Warn
+    errorBtns[3].addEventListener('click', () => {
+      console.warn('Warning! Warning! Wake UP!')
+    })
+
+    // Assert
+    errorBtns[4].addEventListener('click', () => {
+      console.assert('3' === 3, "'3' is not strictly equal to int 3")
+    })
+
+    // Clear
+    errorBtns[5].addEventListener('click', () => {
+      console.clear()
+    })
+
+    // Dir: Displays an interactive list of the properties of the specified JavaScript object. The output is presented as a hierarchical listing with disclosure triangles that let you see the contents of child objects.
+    errorBtns[6].addEventListener('click', () => {
+      console.dir(errorBtns[6])
+    })
+
+    // Dirxml: Displays an interactive tree of descendant elements of the specified XML/HTML element
+    errorBtns[7].addEventListener('click', () => {
+      console.dirxml(document.querySelector('form'))
+      // 
+    })
+
+    // Group
+    errorBtns[8].addEventListener('click', () => {
+      console.group('My Group Starts')   // indent any subsequent console messages
+    })
+
+    // Group End
+    errorBtns[9].addEventListener('click', () => {
+      console.groupEnd('My Group Ends') 
+    })
+
+    // Table
+    errorBtns[10].addEventListener('click', () => {
+      let friends = [
+        {name: 'Alan', age: 20},
+        {name: 'Xavier', age: 21},
+        {name: 'Alexander', age: 21},
+        {name: 'Qiu Tian', age:22},
+        {name: 'Dog Bro 666', age:21}
+      ]
+      friends = friends.map(friend => {
+        return {...friend, highschool: 'KCISEC'}
+      })
+      console.table(friends)
+    })
+
+    // Start Timer
+    errorBtns[11].addEventListener('click', () => {
+      console.time('My Timer')
+    })
+
+    // End Timer
+    errorBtns[12].addEventListener('click', () => {
+      console.timeEnd('My Timer')
+    })
+
+    // Trace
+    errorBtns[13].addEventListener('click', () => {
+      
+      let behavioral = () => {
+        // console.log('Tell me about a time when you had to work under a tight deadline.')
+      }
+      let askClarification = () => {
+          // console.log('Are the connections undirected?')
+      }
+      let getResponse = () => {
+        // console.log('Yes, they are undirected')
+      }
+      let solve = () => {
+        // console.log("An edge if a critical connection if and only if it's not in a cycle")
+        console.trace()   // anonymousThis -> onsite -> technical -> solve
+      }
+      let technical = () => {
+        // console.log('Find all critical connections in a network. A critical connection is a connection that, if removed, will make some server unable to reach some other server.')
+        askClarification()
+        getResponse()
+        solve()
+      }
+      let followup = () => {
+        // console.log("It's confidential")
+      }
+
+      // Main
+      let onsite = () => {
+        behavioral()
+        technical()
+        followup()
+      }
+
+      onsite()
+    })
+
+    // Trigger a Global Error
+    errorBtns[14].addEventListener('click', () => {
+      throw new Error('Counter Strike Global Offensive Error')
+    })
+
+
+
 
   </script>
 </body>
