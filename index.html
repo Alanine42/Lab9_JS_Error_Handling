@@ -247,6 +247,31 @@
 
 
     // -----------------------Step 4--------------------------------
+    // Custom Error
+    class NotSmilingError extends Error {
+      constructor(message) {
+        super(message)
+        this.name = 'NotSmilingError'    // :)
+      }
+    }
+
+    let smile = (smiley) => {
+      if (smiley !== ':)') {
+        throw new NotSmilingError('You are not smiling')
+      }
+    }
+
+    try {
+      smile(':(')
+    }
+    catch (err) {
+      if (err instanceof NotSmilingError) {
+        alert(err)
+      }
+    }
+    finally {
+      console.log('Exiting the 3rd try/catch block')
+    }
 
   </script>
 </body>
