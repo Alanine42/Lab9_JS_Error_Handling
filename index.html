@@ -8,6 +8,15 @@
   <title>Lab 9</title>
   <link rel="icon" href="favicon.ico">
 
+  <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+  <script>
+    window.TrackJS && TrackJS.install({ 
+      token: "a3b3e64a5e704cc39c0d104a89943631"
+      // for more configuration options, see https://docs.trackjs.com
+    });
+  </script>
+                        
+
   <style>
     button {
       margin: 3px;
@@ -272,6 +281,24 @@
     finally {
       console.log('Exiting the 3rd try/catch block')
     }
+
+
+    // -----------------------Step 5--------------------------------
+    errorBtns[14].addEventListener('click', () => {
+      let firstNum = document.querySelector('#first-num').value = '100a'
+      let operator = document.querySelector('#operator').value = '*'
+      let secondNum = document.querySelector('#second-num').value = '100b'
+      document.querySelector('output').innerHTML = eval(`${firstNum} ${operator} ${secondNum}`)
+      // ^shall trigger an error
+
+      window.onerror = (msg, url, line, col, error) => {
+        alert(`Error: ${msg} at line ${line} and column ${col}`)
+      }
+    
+    })
+
+    TrackJS.track('Wow TrackJS is cool!')
+    TrackJS.track(new Error('Errerer! Tracker not tracking me! jk'))
 
   </script>
 </body>
